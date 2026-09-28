@@ -62,8 +62,8 @@ jobs:
             --ks-pass env:KEYSTORE_PASSWORD \
             --key-pass env:KEYSTORE_PASSWORD \
             --ks-key-alias "$KEY_ALIAS" \
-            --out build/outputs/apk/release/PicoBeam.apk \
-            build/outputs/apk/release/app-release-unsigned.apk
+            --out app/build/outputs/apk/release/PicoBeam.apk \
+            app/build/outputs/apk/release/app-release-unsigned.apk
           rm -f keystore.jks
 
       - name: Choose APK to publish
