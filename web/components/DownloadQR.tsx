@@ -3,13 +3,12 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { QRCodeSVG } from "qrcode.react";
-import { Download, Smartphone, Play } from "lucide-react";
+import { Download, Smartphone } from "lucide-react";
 import { fetchLatestRelease, type ReleaseInfo } from "@/lib/releases";
-
-const PLAY_STORE_URL =
-  process.env.NEXT_PUBLIC_PLAY_STORE_URL ?? "https://play.google.com/store/apps/details?id=com.picobeam";
+import { useI18n } from "@/lib/i18n-context";
 
 export default function DownloadQR() {
+  const { t, theme } = useI18n();
   const [release, setRelease] = useState<ReleaseInfo | null>(null);
   const [origin, setOrigin] = useState<string>("");
 
@@ -28,6 +27,9 @@ export default function DownloadQR() {
   const sizeMb = release?.sizeBytes ? (release.sizeBytes / (1024 * 1024)).toFixed(1) : "<8";
   const downloadUrl = `${origin}/download`;
 
+  const qrBg = theme === "light" ? "#ffffff" : "#0b0f17";
+  const qrFg = theme === "light" ? "#007e92" : "#00f0ff";
+
   return (
     <section id="download" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
       <motion.div
@@ -39,50 +41,37 @@ export default function DownloadQR() {
       >
         <div>
           <h2 className="font-display text-3xl font-bold sm:text-4xl">
-            Get it now.
+            {t.download.headingA}
             <br />
             <span className="text-electric text-glow">v{version}</span> · {sizeMb} MB
           </h2>
-          <p className="mt-4 max-w-md text-muted">
-            Point your phone camera at the QR code, or download the signed APK
-            straight to your device. Updates flow automatically from the release
-            channel.
-          </p>
+          <p className="mt-4 max-w-md text-muted">{t.download.desc}</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="/download"
               className="inline-flex items-center gap-2 rounded-full bg-electric px-6 py-3 font-semibold text-bg shadow-[0_0_32px_rgba(0,240,255,0.4)] transition-transform hover:scale-105"
             >
               <Download size={18} />
-              Download APK
-            </a>
-            <a
-              href={PLAY_STORE_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-edge px-6 py-3 font-semibold text-ink transition-colors hover:border-electric/60"
-            >
-              <Play size={18} className="text-electric" />
-              Google Play
+              {t.download.downloadApk}
             </a>
           </div>
           <div className="mt-6 flex items-center gap-2 text-sm text-muted">
             <Smartphone size={15} className="text-electric" />
-            Android 8.0+ · signed release · sha-256 pinned on release
+            {t.download.note}
           </div>
         </div>
 
         <div className="flex justify-center">
-          <div className="rounded-2xl border border-edge bg-bg p-6 shadow-[0_0_48px_rgba(112,0,255,0.25)]">
+          <div className="rounded-2xl border border-edge bg-surface p-6 shadow-[0_0_48px_rgba(112,0,255,0.25)]">
             <QRCodeSVG
               value={origin ? downloadUrl : "https://picobeam.app"}
               size={208}
-              bgColor="#0b0f17"
-              fgColor="#00f0ff"
+              bgColor={qrBg}
+              fgColor={qrFg}
               level="M"
             />
             <p className="mt-4 text-center text-sm font-medium text-electric">
-              Scan to download {version}
+              {t.download.scanToDownload.replace("{version}", version)}
             </p>
           </div>
         </div>

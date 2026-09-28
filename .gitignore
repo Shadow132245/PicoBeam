@@ -22,3 +22,6 @@ Thumbs.db
 # Local env
 .env*
 !.env.example
+
+# Private developer notebook (never pushed)
+PROJECT_MAP.md

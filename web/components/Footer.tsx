@@ -1,6 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { useI18n } from "@/lib/i18n-context";
 
 export default function Footer() {
+  const { t } = useI18n();
+
+  const links = [
+    { href: "#features", label: t.nav.features },
+    { href: "#compare", label: t.nav.compare },
+    { href: "#download", label: t.nav.download },
+  ];
+
   return (
     <footer className="border-t border-edge/60">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
@@ -9,23 +20,20 @@ export default function Footer() {
             Pico<span className="text-electric">Beam</span>
           </span>
           <span>·</span>
-          <span>Made light by design.</span>
+          <span>{t.footer.madeLight}</span>
         </div>
         <div className="flex items-center gap-6 text-sm text-muted">
-          <Link href="#features" className="transition-colors hover:text-electric">
-            Features
-          </Link>
-          <Link href="#compare" className="transition-colors hover:text-electric">
-            Comparison
-          </Link>
-          <Link href="#download" className="transition-colors hover:text-electric">
-            Download
-          </Link>
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className="transition-colors hover:text-electric">
+              {l.label}
+            </Link>
+          ))}
         </div>
         <p className="text-xs text-muted/70">
-          © {new Date().getFullYear()} PicoBeam · no ads, no tracking, no account.
+          © {new Date().getFullYear()} PicoBeam · {t.footer.rights}
         </p>
       </div>
+      <p className="pb-6 text-center text-xs text-muted/60">{t.footer.developedBy}</p>
     </footer>
   );
 }

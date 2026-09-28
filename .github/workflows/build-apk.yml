@@ -43,15 +43,22 @@ jobs:
 
       - name: Sign and rename APK when secrets are present
         working-directory: android
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.ANDROID_KEYSTORE }}
+        env:
+          ANDROID_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         run: |
           set -e
+          if [ -z "$ANDROID_KEYSTORE" ]; then
+            echo "No keystore secrets configured; skipping signing."
+            exit 0
+          fi
           if ! command -v apksigner > /dev/null 2>&1; then
             export PATH="$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1):$PATH"
           fi
-          echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 -d > keystore.jks
-          echo "${{ secrets.KEYSTORE_PASSWORD }}" > keystore-pass.txt
-          echo "${{ secrets.KEY_ALIAS }}" > key-alias.txt
+          echo "$ANDROID_KEYSTORE" | base64 -d > keystore.jks
+          echo "$KEYSTORE_PASSWORD" > keystore-pass.txt
+          echo "$KEY_ALIAS" > key-alias.txt
           apksigner sign \
             --ks keystore.jks \
             --ks-pass file:keystore-pass.txt \

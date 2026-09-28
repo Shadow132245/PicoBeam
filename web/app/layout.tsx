@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { I18nProvider } from "@/lib/i18n-context";
 
 export const metadata: Metadata = {
   title: "PicoBeam — Peer-to-peer file sharing at light speed",
@@ -18,11 +19,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="font-body bg-bg text-ink antialiased min-h-screen">
-        <Nav />
-        {children}
-        <Footer />
+        <I18nProvider>
+          <Nav />
+          {children}
+          <Footer />
+        </I18nProvider>
       </body>
     </html>
   );
