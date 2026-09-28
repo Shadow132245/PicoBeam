@@ -30,7 +30,7 @@ export default function Footer() {
           ))}
         </div>
         <p className="text-xs text-muted/70">
-          © {new Date().getFullYear()} PicoBeam · {t.footer.rights}
+          © {new Date().getFullYear()} EuroMoscow Developments · {t.footer.rights}
         </p>
       </div>
       <p className="pb-6 text-center text-xs text-muted/60">{t.footer.developedBy}</p>

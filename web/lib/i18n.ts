@@ -116,7 +116,7 @@ export const DICTS: Record<Lang, Dict> = {
       note: "Android 8.0+ · signed release · sha-256 pinned on release",
       scanToDownload: "Scan to download {version}",
     },
-    footer: { madeLight: "Made light by design.", rights: "no ads, no tracking, no account.", developedBy: "Developed by Shadow132245" },
+    footer: { madeLight: "Made light by design.", rights: "no ads, no tracking, no account.", developedBy: "Developed by Hassan — known online as EuroMoscow" },
   },
   ar: {
     nav: { features: "المميزات", compare: "المقارنة", download: "التحميل", getApk: "حمّل التطبيق" },
@@ -190,7 +190,7 @@ export const DICTS: Record<Lang, Dict> = {
       note: "أندرويد 8.0+ · إصدار موقّع · بصمة sha-256 مثبتة عند الإصدار",
       scanToDownload: "امسح لتحميل {version}",
     },
-    footer: { madeLight: "خفيف بالتصميم.", rights: "لا إعلانات ولا تتبع ولا حساب.", developedBy: "تطوير Shadow132245" },
+    footer: { madeLight: "خفيف بالتصميم.", rights: "لا إعلانات ولا تتبع ولا حساب.", developedBy: "تطوير Hassan — المعروف إلكترونياً باسم EuroMoscow" },
   },
   fr: {
     nav: { features: "Fonctionnalités", compare: "Comparaison", download: "Télécharger", getApk: "Obtenir l'APK" },
@@ -264,7 +264,7 @@ export const DICTS: Record<Lang, Dict> = {
       note: "Android 8.0+ · version signée · sha-256 épinglé à la release",
       scanToDownload: "Scannez pour télécharger {version}",
     },
-    footer: { madeLight: "Léger par conception.", rights: "pas de pub, pas de suivi, pas de compte.", developedBy: "Développé par Shadow132245" },
+    footer: { madeLight: "Léger par conception.", rights: "pas de pub, pas de suivi, pas de compte.", developedBy: "Développé par Hassan — connu en ligne sous le nom d'EuroMoscow" },
   },
   es: {
     nav: { features: "Funciones", compare: "Comparación", download: "Descargar", getApk: "Obtener APK" },
@@ -338,6 +338,6 @@ export const DICTS: Record<Lang, Dict> = {
       note: "Android 8.0+ · versión firmada · sha-256 fijado en la release",
       scanToDownload: "Escanea para descargar {version}",
     },
-    footer: { madeLight: "Ligero por diseño.", rights: "sin anuncios, sin rastreo, sin cuenta.", developedBy: "Desarrollado por Shadow132245" },
+    footer: { madeLight: "Ligero por diseño.", rights: "sin anuncios, sin rastreo, sin cuenta.", developedBy: "Desarrollado por Hassan — conocido en línea como EuroMoscow" },
   },
 };
