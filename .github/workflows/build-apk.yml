@@ -57,16 +57,14 @@ jobs:
             export PATH="$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1):$PATH"
           fi
           echo "$ANDROID_KEYSTORE" | base64 -d > keystore.jks
-          echo "$KEYSTORE_PASSWORD" > keystore-pass.txt
-          echo "$KEY_ALIAS" > key-alias.txt
           apksigner sign \
             --ks keystore.jks \
-            --ks-pass file:keystore-pass.txt \
-            --key-pass file:keystore-pass.txt \
-            --ks-key-alias "$(cat key-alias.txt)" \
+            --ks-pass env:KEYSTORE_PASSWORD \
+            --key-pass env:KEYSTORE_PASSWORD \
+            --ks-key-alias "$KEY_ALIAS" \
             --out build/outputs/apk/release/PicoBeam.apk \
             build/outputs/apk/release/app-release-unsigned.apk
-          rm -f keystore.jks keystore-pass.txt key-alias.txt
+          rm -f keystore.jks
 
       - name: Choose APK to publish
         run: |
