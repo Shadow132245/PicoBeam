@@ -61,9 +61,17 @@ jobs:
             build/outputs/apk/release/app-release-unsigned.apk
           rm -f keystore.jks keystore-pass.txt key-alias.txt
 
+      - name: Choose APK to publish
+        run: |
+          if [ -f android/app/build/outputs/apk/release/PicoBeam.apk ]; then
+            echo "apk_file=android/app/build/outputs/apk/release/PicoBeam.apk" >> "$GITHUB_ENV"
+          else
+            echo "apk_file=android/app/build/outputs/apk/release/app-release-unsigned.apk" >> "$GITHUB_ENV"
+          fi
+
       - name: Publish APK to GitHub Release (tag pushes)
         uses: softprops/action-gh-release@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') && env.size_bytes != '' }}
         with:
-          files: android/app/build/outputs/apk/release/app-release-unsigned.apk
+          files: ${{ env.apk_file }}
           generate_release_notes: true
