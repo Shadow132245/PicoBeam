@@ -1,0 +1,19 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="beam" x1="256" y1="782" x2="768" y2="270" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00F0FF"/>
+      <stop offset="1" stop-color="#7000FF"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="256" y1="782" x2="768" y2="270" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00F0FF"/>
+      <stop offset="1" stop-color="#7000FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1024" height="1024" rx="232" fill="#0B0F17"/>
+  <path d="M256 782 C440 700 560 612 716 442" stroke="url(#glow)" stroke-width="190" stroke-linecap="round" opacity="0.16"/>
+  <path d="M316 660 L744 232" stroke="#00F0FF" stroke-width="34" stroke-linecap="round" opacity="0.30"/>
+  <path d="M396 716 L824 288" stroke="#00F0FF" stroke-width="22" stroke-linecap="round" opacity="0.18"/>
+  <path d="M256 782 L768 270" stroke="url(#beam)" stroke-width="96" stroke-linecap="round"/>
+  <circle cx="768" cy="270" r="64" fill="#00F0FF"/>
+  <circle cx="768" cy="270" r="110" fill="#00F0FF" opacity="0.18"/>
+</svg>

@@ -1,0 +1,69 @@
+name: Build APK
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build release APK
+        working-directory: android
+        run: ./gradlew :app:assembleRelease --no-daemon --console=plain
+
+      - name: Report APK size
+        working-directory: android
+        run: |
+          SIZE=$(stat -c%s app/build/outputs/apk/release/app-release-unsigned.apk)
+          echo "APK size: $((SIZE / 1024 / 1024)) MB ($SIZE bytes)"
+          echo "size_bytes=$SIZE" >> "$GITHUB_ENV"
+
+      - name: Fail if larger than 8 MB
+        run: |
+          if [ "${{ env.size_bytes }}" -gt $((8 * 1024 * 1024)) ]; then
+            echo "::error::APK is larger than 8 MB (${{ env.size_bytes }} bytes). PicoBeam must stay under 8 MB."
+            exit 1
+          fi
+
+      - name: Sign and rename APK when secrets are present
+        working-directory: android
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.ANDROID_KEYSTORE }}
+        run: |
+          set -e
+          if ! command -v apksigner > /dev/null 2>&1; then
+            export PATH="$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1):$PATH"
+          fi
+          echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 -d > keystore.jks
+          echo "${{ secrets.KEYSTORE_PASSWORD }}" > keystore-pass.txt
+          echo "${{ secrets.KEY_ALIAS }}" > key-alias.txt
+          apksigner sign \
+            --ks keystore.jks \
+            --ks-pass file:keystore-pass.txt \
+            --key-pass file:keystore-pass.txt \
+            --ks-key-alias "$(cat key-alias.txt)" \
+            --out build/outputs/apk/release/PicoBeam.apk \
+            build/outputs/apk/release/app-release-unsigned.apk
+          rm -f keystore.jks keystore-pass.txt key-alias.txt
+
+      - name: Publish APK to GitHub Release (tag pushes)
+        uses: softprops/action-gh-release@v2
+        if: ${{ startsWith(github.ref, 'refs/tags/') && env.size_bytes != '' }}
+        with:
+          files: android/app/build/outputs/apk/release/app-release-unsigned.apk
+          generate_release_notes: true
