@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">PicoBeam</string>
+    <string name="share_tab">إرسال</string>
+    <string name="receive_tab">استقبال</string>
+
+    <string name="send_header">إرسال ملفات</string>
+    <string name="send_subtitle">اختر فئة، حدّد ملفاتك، ثم أظهر رمز QR للمستقبِل — أو شارك عبر نفس الواي فاي.</string>
+    <string name="cat_photos">الصور</string>
+    <string name="cat_videos">الفيديو</string>
+    <string name="cat_music">الموسيقى</string>
+    <string name="cat_apps">تطبيقات APK</string>
+    <string name="cat_docs">المستندات</string>
+    <string name="cat_all">كل الملفات</string>
+    <string name="add_files">إضافة ملفات</string>
+    <string name="add_more">إضافة المزيد</string>
+    <string name="files_ready">%1$d ملف(ات) جاهز</string>
+    <string name="send_button">إرسال</string>
+    <string name="remove">حذف</string>
+    <string name="clear_all">مسح الكل</string>
+    <string name="no_files_yet">لم تُحدَّد ملفات بعد.</string>
+
+    <string name="sharing_title">جارٍ الإرسال الآن</string>
+    <string name="waiting_peer">المستقبِل يمسح هذا الرمز بتطبيق PicoBeam، أو يفتح العنوان من متصفح على نفس الواي فاي.</string>
+    <string name="hotspot_label">نقطة اتصال مباشرة</string>
+    <string name="hotspot_ssid">الشبكة</string>
+    <string name="hotspot_pass">كلمة السر</string>
+    <string name="hotspot_unavailable">نقطة الاتصال غير متاحة — وصّل الجهازين بنفس الواي فاي بدلاً من ذلك.</string>
+    <string name="scan_qr_hint">امسح الرمز</string>
+    <string name="open_in_browser">فتح بمتصفح / هاتف آخر</string>
+    <string name="copy_link">نسخ الرابط</string>
+    <string name="stop_sharing">إيقاف المشاركة</string>
+
+    <string name="receive_header">استقبال ملفات</string>
+    <string name="receive_subtitle">امسح رمز QR الخاص بالمرسِل بالكاميرا، أو اكتب العنوان يدوياً.</string>
+    <string name="scan_qr_button">مسح رمز QR</string>
+    <string name="manual_url_fallback">أو اكتب العنوان</string>
+    <string name="connect">اتصال</string>
+    <string name="url_hint">http://192.168.1.20:8765</string>
+    <string name="clear">مسح</string>
+
+    <string name="allow_camera">السماح بالكاميرا</string>
+    <string name="camera_unavailable">الكاميرا غير متاحة</string>
+    <string name="scanning">جارٍ المسح…</string>
+    <string name="unknown_qr">رمز QR غير معروف.</string>
+    <string name="joining_hotspot">جارٍ الاتصال بنقطة اتصال المرسِل…</string>
+    <string name="join_failed">تعذّر الاتصال بنقطة اتصال المرسِل.</string>
+    <string name="join_manually_title">الاتصال بنقطة الاتصال</string>
+    <string name="join_manually_body">انظر إلى شاشة المرسِل: افتح إعدادات الواي فاي، اتصل بـ %1$s بكلمة السر %2$s، ثم تابع.</string>
+    <string name="manual_continue">اتصلت — تابع</string>
+    <string name="cancel">إلغاء</string>
+    <string name="connection_failed">فشل الاتصال</string>
+
+    <string name="download_all">تحميل الكل</string>
+    <string name="transferring">جارٍ النقل…</string>
+    <string name="downloading">جارٍ التحميل…</string>
+    <string name="results">النتائج</string>
+    <string name="files_saved">الملفات تُحفظ في PicoBeam ضمن تخزين التطبيق.</string>
+
+    <string name="theme_toggle_dark">التبديل للثيم الفاتح</string>
+    <string name="theme_toggle_light">التبديل للثيم الداكن</string>
+</resources>

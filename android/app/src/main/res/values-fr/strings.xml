@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">PicoBeam</string>
+    <string name="share_tab">Partager</string>
+    <string name="receive_tab">Recevoir</string>
+
+    <string name="send_header">Envoyer des fichiers</string>
+    <string name="send_subtitle">Choisissez une catégorie, sélectionnez vos fichiers, puis montrez le code QR au récepteur — ou partagez sur le même Wi-Fi.</string>
+    <string name="cat_photos">Photos</string>
+    <string name="cat_videos">Vidéos</string>
+    <string name="cat_music">Musique</string>
+    <string name="cat_apps">APK</string>
+    <string name="cat_docs">Documents</string>
+    <string name="cat_all">Tous les fichiers</string>
+    <string name="add_files">Ajouter des fichiers</string>
+    <string name="add_more">Ajouter plus</string>
+    <string name="files_ready">%1$d fichier(s) prêt(s)</string>
+    <string name="send_button">Envoyer</string>
+    <string name="remove">Retirer</string>
+    <string name="clear_all">Tout effacer</string>
+    <string name="no_files_yet">Aucun fichier sélectionné.</string>
+
+    <string name="sharing_title">Partage en cours</string>
+    <string name="waiting_peer">Le récepteur scanne ce code avec PicoBeam, ou un navigateur sur le même Wi-Fi ouvre l\'adresse.</string>
+    <string name="hotspot_label">Point d\'accès direct</string>
+    <string name="hotspot_ssid">Réseau</string>
+    <string name="hotspot_pass">Mot de passe</string>
+    <string name="hotspot_unavailable">Point d\'accès indisponible — connectez plutôt les deux appareils au même Wi-Fi.</string>
+    <string name="scan_qr_hint">Scanner le QR</string>
+    <string name="open_in_browser">Ouvrir sur un navigateur / téléphone</string>
+    <string name="copy_link">Copier le lien</string>
+    <string name="stop_sharing">Arrêter le partage</string>
+
+    <string name="receive_header">Recevoir des fichiers</string>
+    <string name="receive_subtitle">Scannez le code QR de l\'expéditeur avec la caméra, ou saisissez l\'adresse manuellement.</string>
+    <string name="scan_qr_button">Scanner le code QR</string>
+    <string name="manual_url_fallback">Ou tapez l\'adresse</string>
+    <string name="connect">Connexion</string>
+    <string name="url_hint">http://192.168.1.20:8765</string>
+    <string name="clear">Effacer</string>
+
+    <string name="allow_camera">Autoriser la caméra</string>
+    <string name="camera_unavailable">Caméra indisponible</string>
+    <string name="scanning">Scan en cours…</string>
+    <string name="unknown_qr">Code QR non reconnu.</string>
+    <string name="joining_hotspot">Connexion au point d\'accès de l\'expéditeur…</string>
+    <string name="join_failed">Impossible de rejoindre le point d\'accès de l\'expéditeur.</string>
+    <string name="join_manually_title">Rejoindre le point d\'accès</string>
+    <string name="join_manually_body">Regardez l\'écran de l\'expéditeur : ouvrez les réglages Wi-Fi, connectez-vous à %1$s avec le mot de passe %2$s, puis continuez.</string>
+    <string name="manual_continue">Connecté — continuer</string>
+    <string name="cancel">Annuler</string>
+    <string name="connection_failed">échec de la connexion</string>
+
+    <string name="download_all">Tout télécharger</string>
+    <string name="transferring">Transfert…</string>
+    <string name="downloading">Téléchargement…</string>
+    <string name="results">Résultats</string>
+    <string name="files_saved">Les fichiers arrivent dans PicoBeam sous le stockage de l\'app.</string>
+
+    <string name="theme_toggle_dark">Passer au thème clair</string>
+    <string name="theme_toggle_light">Passer au thème sombre</string>
+</resources>

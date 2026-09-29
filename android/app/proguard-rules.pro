@@ -2,6 +2,9 @@
 
 -keep class com.picobeam.transfer.** { *; }
 
+-keep class com.google.zxing.** { *; }
+-dontwarn com.google.zxing.**
+
 -keep class io.ktor.** { *; }
 -dontwarn io.ktor.**
 
@@ -17,6 +20,13 @@
     *** Companion;
 }
 -keepclasseswithmembers class com.picobeam.transfer.** {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+-keep,includedescriptorclasses class com.picobeam.app.core.**$$serializer { *; }
+-keepclassmembers class com.picobeam.app.core.** {
+    *** Companion;
+}
+-keepclasseswithmembers class com.picobeam.app.core.** {
     kotlinx.serialization.KSerializer serializer(...);
 }
 
